@@ -1,0 +1,25 @@
+---
+interface Props {
+    year: number | string;
+    text: string;
+    image: string;
+    alt: string;
+}
+
+const {
+    year,
+    text,
+    image,
+    alt
+} = Astro.props;
+---
+
+<article class="relative flex flex-row gap-12 items-center mb-14">
+    <div class="w-6/12">
+        <span class="font-semibold tracking-[10vw] text-8xl font-main">{year}</span>
+        <p class="font-light font-main leading-10 text-lg">{text}</p>
+    </div>
+    <div class="w-6/12 h-full overflow-hidden bg-black rounded-xl">
+        <img class="object-cover size-full" src={image} alt={alt}>
+    </div>
+</article>
