@@ -1,0 +1,26 @@
+---
+const ITEM = [
+{
+    date: "2017",
+    text: "My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time.",
+    image: "/images/serving-coffee.jpg",
+    alt: "image"
+}
+]
+---
+
+<article class="relative flex flex-row gap-12 items-center mb-14">
+    {
+        ITEM.map((item) => (
+            <div class="flex items-center">
+                <div class="w-1/2">
+                    <span class="font-semibold text-8xl font-main">{item.date}</span>
+                    <p class="font-light font-main leading-10 text-lg text-justify">{item.text}</p>
+                </div>
+                <div class="w-1/2 h-full overflow-hidden bg-black rounded-xl">
+                    <img class="object-cover size-full" src={item.image} alt={item.alt}>
+                </div>
+            </div>
+        ))
+    }
+</article>

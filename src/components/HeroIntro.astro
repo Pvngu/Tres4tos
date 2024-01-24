@@ -1,0 +1,114 @@
+---
+const TEXT =
+{
+    top: "I'm Andrea Hernandez.",
+    middle:"A Coffee Specialist",
+    bottom: "Based in California.",
+    paragraph: "I have a strong engineering and coordination background that I can implement in any type of applications"
+}
+
+const splitTop = [...TEXT.top];
+const splitMiddle = [...TEXT.middle];
+const splitBottom = [...TEXT.bottom];
+---
+<div class="relative flex items-center justify-center w-6/12 bg-cover bg-hero-texture">
+    <div class="px-24">
+        <h1 id="top" class="font-bold text-nowrap font-main text-cream-white inline-block">
+            {
+                splitTop.map((c) => (
+                    <span class={c == ' ' ? 'c-space' : ''}>{c}</span>
+                ))
+            }
+        </h1>
+        <div class="flex">
+            <h1 id="middle" class="font-bold text-nowrap font-main text-cream-white">{
+                splitMiddle.map((c) => (
+                    <span class={c == ' ' ? 'c-space' : ''}>{c}</span>
+                ))
+            }</h1>
+            <div class="w-1/6 relative translate-x-5">
+                <img class="absolute max-w-32" id="coffee-bean" src="/images/coffee-bean-icon.svg" alt="coffee bean">
+            </div>
+        </div>
+        <h1 id="bottom" class="font-bold text-nowrap font-main opacity-70 text-flame-orange">
+            {
+                splitBottom.map((c) => (
+                    <span class={c == ' ' ? 'c-space' : ''}>{c}</span>
+                ))
+            }
+        </h1>
+        <p class="font-bold font-main text-cream-white">I have a strong engineering and coordination background that I can implement in any type of applications</p>
+    </div>
+</div>
+
+<script>
+    function addClassAnimate(e) {
+        const container = document.getElementById(e);
+        const span = container?.getElementsByTagName('span');
+
+        for(let i = 0; i < span.length; i++) {
+            setTimeout(() => {
+                span[i].classList.add('active');
+
+                if(i === span.length - 1) {
+                    document.getElementById('coffee-bean')?.classList.add('active');
+                }
+
+            }, i * 80)
+        }
+    }
+    addClassAnimate('top');
+    addClassAnimate('middle');
+    addClassAnimate('bottom');
+</script>
+
+<style>
+	h1 {
+		font-size: clamp(20px, 3.5vw ,60px);
+        overflow: hidden;
+
+        span {
+            display: inline-block;
+            transform: translateY(75%);
+            transition: transform 400ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        }
+
+        span.active {
+            transform: translateY(0%); 
+        }
+	}
+
+    P {
+        opacity: 0;
+        animation: p 2000ms ease-in-out forwards;
+    }
+
+    .c-space {
+        margin-right: 10px;
+    }
+
+    @keyframes p {
+        100% {
+            opacity: 70;
+        }
+    }
+
+    #coffee-bean {
+        opacity: 0;
+    }
+
+    #coffee-bean.active {
+        animation: pop 0.4s linear forwards;
+    }
+
+    @keyframes pop{
+        50%  {
+            transform: scale(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+</style>

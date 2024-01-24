@@ -1,58 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SectionContent from '../components/SectionContent.astro';
-import TimelineCard from '../components/TimelineCard.astro';
+import TimelineContent from '../components/TimelineContent.astro';
+import Mouse from '../components/Mouse.astro';
+import HeroIntro from '../components/HeroIntro.astro';
 ---
 
 <Layout title='Andrea Hernandez | Portfolio'>
 	<main>
-		<SectionContent>
+		<Mouse client:load />
+		<section id="home">
 			<div class="flex min-h-screen">
-				<div class="relative flex items-center justify-center w-6/12 bg-cover bg-hero-texture">
-					<div class="px-24">
-						<h1 class="font-bold text-nowrap font-main text-cream-white">I'm Andrea Hernandez.</h1>
-						<h1 class="font-bold text-nowrap font-main text-cream-white">A Coffee Specialist</h1>
-						<h1 class="font-bold text-nowrap font-main opacity-70 text-flame-orange">Based in California.</h1>
-						<p class="font-bold font-main text-cream-white opacity-80">I have a strong engineering and coordination background that I can implement in any type of applications</p>
-					</div>
-				</div>
+				<HeroIntro client:load />
 				<div class="w-6/12">
+					<!-- <video class="object-cover size-full" autoplay muted loop src="/images/hero-image.mp4" /> -->
 					<img class="object-cover size-full" src="/images/hero-image.jpg" alt="andrea's picture">
 				</div>
 			</div>
-		</SectionContent>
-		<section class="relative px-24 py-16 bg-cream-white">
+		</section>
+		<section id="about" class="relative px-24 py-16 bg-cream-white">
 			<h2 class="text-4xl font-bold leading-normal font-main text-mocha-brown">About Andrea<br>Hernandez</h2>
-			<TimelineCard 
-			year=2017
-			text="My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time."
-			image='/images/serving-coffee.jpg'
-			alt='description'
-			/>
-			<TimelineCard 
-			year=2018
-			text="My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time."
-			image='/images/serving-coffee.jpg'
-			alt='description'
-			/>
-			<TimelineCard 
-			year=2019
-			text="My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time."
-			image='/images/serving-coffee.jpg'
-			alt='description'
-			/>
-			<TimelineCard 
-			year=2020
-			text="My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time."
-			image='/images/serving-coffee.jpg'
-			alt='description'
-			/>
+			<TimelineContent />
 		</section>
 	</main>
 </Layout>
-
-<style>
-	h1 {
-		font-size: clamp(20px, 3.5vw ,60px);
-	}
-</style>
