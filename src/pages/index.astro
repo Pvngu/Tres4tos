@@ -3,23 +3,27 @@ import Layout from '../layouts/Layout.astro';
 import TimelineContent from '../components/TimelineContent.astro';
 import Mouse from '../components/Mouse.astro';
 import HeroIntro from '../components/HeroIntro.astro';
+import H2 from '../components/H2.astro';
 ---
 
 <Layout title='Andrea Hernandez | Portfolio'>
 	<main>
-		<Mouse client:load />
+		<Mouse />
 		<section id="home">
-			<div class="flex min-h-screen">
-				<HeroIntro client:load />
-				<div class="w-6/12">
-					<!-- <video class="object-cover size-full" autoplay muted loop src="/images/hero-image.mp4" /> -->
+			<div class="flex md:min-h-screen max-md:flex-col-reverse max-md:flex-s max-md:w-full">
+				<HeroIntro />
+				<div class="md:w-1/2">
+					<!-- <video class="object-cover size-full" autoplay muted loop src="/images/hero-video.mp4" /> -->
 					<img class="object-cover size-full" src="/images/hero-image.jpg" alt="andrea's picture">
 				</div>
 			</div>
 		</section>
-		<section id="about" class="relative px-24 py-16 bg-cream-white">
-			<h2 class="text-4xl font-bold leading-normal font-main text-mocha-brown">About Andrea<br>Hernandez</h2>
+		<section id="about" class="relative max-md:px-6 px-32 py-16 bg-cream-white rounded-t-3xl">
+			<H2>About Andrea<br>Hernandez</H2>
 			<TimelineContent />
+		</section>
+		<section id="gallery" class="relative px-32 py-16 bg-cream-white opacity-70">
+			<H2>Gallery</H2>
 		</section>
 	</main>
 </Layout>

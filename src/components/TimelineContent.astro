@@ -1,26 +1,46 @@
 ---
 const ITEM = [
 {
+    date: "2015",
+    text: "My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time.",
+    image: "/images/serving-coffee.jpg",
+    alt: "image"
+},
+{
     date: "2017",
     text: "My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time.",
+    image: "/images/serving-coffee.jpg",
+    alt: "image"
+},
+{
+    date: "2018",
+    text: " I joined the team of Delisse as the head barista. Working along with Chef Aron Sanchez, I was able to train my palate by tasting different ingredients and understanding the similarity between coffee and food. I remember the smell of butter every single morning while the Croissants were being baked every single morning.",
     image: "/images/serving-coffee.jpg",
     alt: "image"
 }
 ]
 ---
 
-<article class="relative flex flex-row gap-12 items-center mb-14">
+<article class="relative flex gap-12 items-center mb-14 flex-col">
     {
-        ITEM.map((item) => (
-            <div class="flex items-center">
-                <div class="w-1/2">
-                    <span class="font-semibold text-8xl font-main">{item.date}</span>
-                    <p class="font-light font-main leading-10 text-lg text-justify">{item.text}</p>
+        ITEM.map((item, index) => (
+            <div class={`flex ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} items-center gap-20 max-md:gap-4 max-md:flex-col w-full`}>
+                <div class="md:w-1/2 text-center relative">
+                    <span class="font-semibold mb-6 text-8xl font-main md:translate-x-11 tracking-[5vw] addStroke inline-block">{item.date}</span>
+                    <p class="font-light font-main leading-10 max-md:text-base text-xl text-justify">{item.text}</p>
                 </div>
-                <div class="w-1/2 h-full overflow-hidden bg-black rounded-xl">
+                <div class="md:w-1/2 h-full overflow-hidden bg-black rounded-2xl">
                     <img class="object-cover size-full" src={item.image} alt={item.alt}>
                 </div>
             </div>
         ))
     }
 </article>
+
+<style>
+    .addStroke {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-color: #5b3330;
+        -webkit-text-stroke-width: 1.5px;
+    }
+</style>
