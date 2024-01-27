@@ -4,7 +4,7 @@ import 'photoswipe/style.css';
 
 <div class="grid grid-cols-3 gap-6 mx-auto" id="gallery">
     {
-        Array.from({length: 3}).map((_, i) => {
+        Array.from({length: 9}).map((_, i) => {
             const img = '';
 
             return(
@@ -27,6 +27,43 @@ import 'photoswipe/style.css';
 </div>
 
 <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import SplitType from 'split-type';
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    // title Animation
+
+    const header = document.getElementById('gallery')?.querySelector('h2');
+
+    const text = new SplitType(header as HTMLElement, { types: 'chars'});
+
+    gsap.from(text.chars, {
+        scrollTrigger: {
+            trigger: header,
+            start: 'top 80%',
+            scrub: false,
+            markers: false
+        },
+        y: 30,
+        opacity: 0,
+        stagger: 0.05
+    })
+
+    const bg = document.getElementById('bg');
+    gsap.to(bg, {
+        scrollTrigger: {
+            trigger: header,
+            start: 'top 60%',
+            end: 'top 20%',
+            scrub: true,
+            markers: true
+        },
+        background: 'rgba(233, 218, 196, 0.7)',
+        stagger: 1
+    })
+
     import PhotoSwipeLightbox from 'photoswipe/lightbox'
 
     const lightbox = new PhotoSwipeLightbox({
