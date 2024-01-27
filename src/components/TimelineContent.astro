@@ -24,12 +24,12 @@ const ITEM = [
 <article class="relative flex gap-12 items-center mb-14 flex-col">
     {
         ITEM.map((item, index) => (
-            <div class={`flex ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} items-center gap-20 max-md:gap-4 max-md:flex-col w-full`}>
+            <div class={`flex ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} items-center gap-20 max-md:gap-4 max-md:flex-col w-full timeline-card`}>
                 <div class="md:w-1/2 text-center relative">
                     <span class="font-semibold mb-6 text-8xl font-main md:translate-x-11 tracking-[5vw] addStroke inline-block">{item.date}</span>
                     <p class="font-light font-main leading-10 max-md:text-base text-xl text-justify">{item.text}</p>
                 </div>
-                <div class="md:w-1/2 w-full max-md:h-64 h-[480px] overflow-hidden bg-black rounded-2xl">
+                <div class="md:w-1/2 w-full max-md:h-64 h-[480px] overflow-hidden bg-black rounded-3xl">
                     <img class="object-cover size-full" src={item.image} alt={item.alt}>
                 </div>
             </div>
@@ -53,19 +53,54 @@ const ITEM = [
             trigger: splitType,
             start: 'top 80%',
             scrub: false,
-            markers: true
+            markers: false
         },
         y: 30,
         opacity: 0,
         stagger: 0.05
     })
+    const timelines = document.querySelectorAll('.timeline-card');
 
-    
+    timelines.forEach((timeline) => {
+
+        // Animation for date title
+
+        const date = timeline.getElementsByTagName('span');
+        const textD = new SplitType(date, { types:'chars'})
+
+        gsap.to(textD.chars, {
+            scrollTrigger: {
+                trigger: date,
+                start: 'top 60%',
+                end: 'top 30%',
+                scrub: true,
+                markers: false
+            },
+            color: 'rgba(91, 51, 48, 0.8)'
+        })
+
+        // Animation for paragraph
+
+        const p = timeline.getElementsByTagName('p');
+        const textP = new SplitType(p , { types: 'chars' })
+
+        gsap.from(textP.chars, {
+            scrollTrigger: {
+                trigger: p,
+                start: 'top 100%',
+                end: 'top 50%',
+                scrub: true,
+                markers: false
+            },
+            opacity: 0.5,
+            stagger: 1
+        })
+    })
 </script>
 
 <style>
     .addStroke {
-        -webkit-text-fill-color: transparent;
+        color: #e9dac4;
         -webkit-text-stroke-color: #5b3330;
         -webkit-text-stroke-width: 1.5px;
     }
