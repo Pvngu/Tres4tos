@@ -1,0 +1,38 @@
+---
+import 'photoswipe/style.css';
+---
+
+<div class="grid grid-cols-3 gap-6 mx-auto" id="gallery">
+    {
+        Array.from({length: 3}).map((_, i) => {
+            const img = '';
+
+            return(
+                <a 
+                href={`/gallery/img-${i + 1}.jpg`}
+                data-pswp-width=''
+                data-pswp-height=''
+                target="_blank"
+                >
+                <img
+                src={`/gallery/img-${i + 1}.jpg`}
+                data-pswp-width=''
+                data-pswp-height=''
+                loading="lazy"
+                alt="">
+                </a>
+            );
+        })
+    }
+</div>
+
+<script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox'
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe')
+    });
+    lightbox.init();
+</script>

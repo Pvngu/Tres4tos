@@ -4,6 +4,7 @@ import TimelineContent from '../components/TimelineContent.astro';
 import Mouse from '../components/Mouse.astro';
 import HeroIntro from '../components/HeroIntro.astro';
 import H2 from '../components/H2.astro';
+import Gallery from '../components/Gallery.astro';
 ---
 
 <Layout title='Andrea Hernandez | Portfolio'>
@@ -18,12 +19,15 @@ import H2 from '../components/H2.astro';
 				</div>
 			</div>
 		</section>
-		<section id="about" class="relative max-md:px-6 px-32 py-16 bg-cream-white rounded-t-3xl">
-			<H2>About Andrea<br>Hernandez</H2>
-			<TimelineContent />
-		</section>
-		<section id="gallery" class="relative px-32 py-16 bg-cream-white opacity-70">
-			<H2>Gallery</H2>
-		</section>
+		<div class="bg-cream-white relative rounded-t-3xl">
+			<section id="about" class="relative max-md:px-6 max-2xl:px-12 px-32 py-16">
+				<H2>About Me</H2>
+				<TimelineContent />
+			</section>
+			<section id="gallery" class="relative px-32 py-16">
+				<H2>Gallery</H2>
+				<Gallery />
+			</section>
+		</div>
 	</main>
 </Layout>

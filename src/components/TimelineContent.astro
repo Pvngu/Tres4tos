@@ -8,14 +8,14 @@ const ITEM = [
 },
 {
     date: "2017",
-    text: "My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time.",
-    image: "/images/serving-coffee.jpg",
+    text: "I was already CEO of the company and I was able to share my knowledge with the new hires by making them elaborate a presentation of their beverages while maintaining a clean and professional area.",
+    image: "/images/machine.jpg",
     alt: "image"
 },
 {
     date: "2018",
     text: " I joined the team of Delisse as the head barista. Working along with Chef Aron Sanchez, I was able to train my palate by tasting different ingredients and understanding the similarity between coffee and food. I remember the smell of butter every single morning while the Croissants were being baked every single morning.",
-    image: "/images/serving-coffee.jpg",
+    image: "/images/machine-2.jpg",
     alt: "image"
 }
 ]
@@ -29,13 +29,39 @@ const ITEM = [
                     <span class="font-semibold mb-6 text-8xl font-main md:translate-x-11 tracking-[5vw] addStroke inline-block">{item.date}</span>
                     <p class="font-light font-main leading-10 max-md:text-base text-xl text-justify">{item.text}</p>
                 </div>
-                <div class="md:w-1/2 h-full overflow-hidden bg-black rounded-2xl">
+                <div class="md:w-1/2 w-full max-md:h-64 h-[480px] overflow-hidden bg-black rounded-2xl">
                     <img class="object-cover size-full" src={item.image} alt={item.alt}>
                 </div>
             </div>
         ))
     }
 </article>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import SplitType from 'split-type';
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    const splitType = document.getElementById('about')?.querySelector('h2');
+
+    const text = new SplitType(splitType as HTMLElement, { types: 'chars'});
+
+    gsap.from(text.chars, {
+        scrollTrigger: {
+            trigger: splitType,
+            start: 'top 80%',
+            scrub: false,
+            markers: true
+        },
+        y: 30,
+        opacity: 0,
+        stagger: 0.05
+    })
+
+    
+</script>
 
 <style>
     .addStroke {

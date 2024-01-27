@@ -1,82 +1,79 @@
----
-const TEXT =
-{
-    top: "I'm Andrea Hernandez.",
-    middle:"A Coffee Specialist",
-    bottom: "Based in California.",
-    paragraph: "I have a strong engineering and coordination background that I can implement in any type of applications"
-}
-
-const splitTop = [...TEXT.top];
-const splitMiddle = [...TEXT.middle];
-const splitBottom = [...TEXT.bottom];
----
 <div class="relative flex items-center justify-center md:w-1/2 bg-cover bg-hero-texture">
-    <div class="md:px-24 max-md:px-10 max-md:py-10 md:fixed">
-        <h1 id="top" class="font-bold text-nowrap font-main text-cream-white">
-            {
-                splitTop.map((c) => (
-                    <span class={c == ' ' ? 'c-space' : ''}>{c}</span>
-                ))
-            }
+    <div class="md:px-24 max-md:px-10 max-md:py-10" id="headerIntro">
+        <h1 class="font-bold text-nowrap font-main text-cream-white appear-text">
+            I'm Andrea Hernandez.
         </h1>
         <div class="flex">
-            <h1 id="middle" class="font-bold text-nowrap font-main text-cream-white">{
-                splitMiddle.map((c) => (
-                    <span class={c == ' ' ? 'c-space' : ''}>{c}</span>
-                ))
-            }</h1>
+            <h1 class="font-bold text-nowrap font-main text-cream-white appear-text">
+                A Coffee Specialist
+            </h1>
             <div class="w-1/6 relative translate-x-5 hover:scale-105 transition-all">
                 <img class="absolute max-w-32 " id="coffee-bean" src="/images/coffee-bean-icon.svg" alt="coffee bean">
             </div>
         </div>
-        <h1 id="bottom" class="font-bold text-nowrap font-main opacity-70 text-flame-orange">
-            {
-                splitBottom.map((c) => (
-                    <span class={c == ' ' ? 'c-space' : ''}>{c}</span>
-                ))
-            }
+        <h1 class="font-bold text-nowrap font-main opacity-70 text-flame-orange appear-text">
+            Based in California.
         </h1>
         <p class="font-bold font-main text-cream-white max-md:mt-3">I have a strong engineering and coordination background that I can implement in any type of applications</p>
     </div>
 </div>
 
-<script type="text/javascript">
-    function addClassAnimate(e) {
-        const container = document.getElementById(e);
-        const span = container?.getElementsByTagName('span');
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import SplitType from 'split-type'
 
-        for(let i = 0; i < span.length; i++) {
-            setTimeout(() => {
-                span[i].classList.add('active');
+    const about = document.getElementById('about')
+    const header = document.getElementById('headerIntro')
 
-                if(i === span.length - 1) {
-                    document.getElementById('coffee-bean')?.classList.add('active');
-                }
+    gsap.registerPlugin(ScrollTrigger)
 
-            }, i * 80)
-        }
-    }
-    addClassAnimate('top');
-    addClassAnimate('middle');
-    addClassAnimate('bottom');
+    const splitTypes = document.querySelectorAll('.appear-text')
+
+    splitTypes.forEach((char) => {
+        const text = new SplitType(char as HTMLElement, { types: 'chars'})
+
+        gsap.from(text.chars, {
+            scrollTrigger: {
+                trigger: char,
+                scrub: false
+            },
+            y: 100,
+            stagger: 0.08,
+            onComplete: () => {
+                document.getElementById('coffee-bean')?.classList.add('active');
+            }
+        })
+    })
+
+    gsap.to(header, {
+            scrollTrigger: {
+                trigger: about,
+                start: 'top 100%',
+                end: 'top 30%',
+                scrub: true
+            },
+            opacity: 0,
+            y: '50%',
+            stagger: 0.01
+    })
 </script>
 
 <style>
 	h1 {
 		font-size: clamp(20px, 3.5vw ,60px);
         overflow: hidden;
-
-        span {
-            display: inline-block;
-            transform: translateY(75%);
-            transition: transform 400ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
-        }
-
-        span.active {
-            transform: translateY(0%); 
-        }
 	}
+
+    h1 span {
+        display: inline-block;
+        transform: translateY(75%);
+        transition: transform 400ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    }
+
+    h1 span.active {
+        transform: translateY(0%); 
+    }
 
     P {
         opacity: 0;
@@ -99,7 +96,7 @@ const splitBottom = [...TEXT.bottom];
     }
 
     #coffee-bean.active {
-        animation: pop 0.4s linear forwards;
+        animation: pop 0.5s linear forwards;
     }
 
     @keyframes pop{
