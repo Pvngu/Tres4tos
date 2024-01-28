@@ -1,29 +1,45 @@
----
-import 'photoswipe/style.css';
----
-
-<div class="grid grid-cols-3 gap-6 mx-auto" id="gallery">
-    {
-        Array.from({length: 9}).map((_, i) => {
-            const img = '';
-
-            return(
-                <a 
-                href={`/gallery/img-${i + 1}.jpg`}
-                data-pswp-width=''
-                data-pswp-height=''
-                target="_blank"
-                >
-                <img
-                src={`/gallery/img-${i + 1}.jpg`}
-                data-pswp-width=''
-                data-pswp-height=''
-                loading="lazy"
-                alt="">
-                </a>
-            );
-        })
-    }
+<div class="flex gap-4 flex-col">
+    <!-- top row -->
+    <div class="flex max-md:flex-col w-full gap-4" id="gallery">
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+            <img class="object-cover size-full rounded-xl" src="/gallery/img-1.jpg">
+        </div>
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+            <img class="object-cover size-full rounded-xl" src="/gallery/img-2.jpg">
+        </div>
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+            <img class="object-cover size-full rounded-xl" src="/gallery/img-3.jpg">
+        </div>
+    </div>
+    <!-- middle row -->
+    <div class="flex max-md:flex-col w-full gap-4" id="gallery">
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+            <img class="object-cover size-full rounded-xl" src="/gallery/img-4.jpg">
+        </div>
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+            <img class="object-cover size-full rounded-xl" src="/gallery/img-5.jpg">
+        </div>
+    </div>
+    <!-- bottom row -->
+    <div class="flex max-md:flex-col w-full gap-4" id="gallery">
+        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem]">
+            <img class="object-cover size-full rounded-xl" src="/gallery/img-6.jpg">
+        </div>
+        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem]">
+            <img class="object-cover size-full rounded-xl" src="/gallery/img-7.jpg">
+        </div>
+        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem] overflow-hidden">
+            <img class="object-cover size-full rounded-xl" src="/gallery/img-8.jpg">
+        </div>
+    </div>
+</div>
+<div class="py-12 max-md:py-4 max-2xl:py-8 text-center">
+    <a 
+    href="/gallery" 
+    class="px-32 py-4 bg-mocha-brown text-cream-white font-bold tracking-widest hover:scale-105 transition-transform"
+    >
+        View Complete Gallery
+    </a>
 </div>
 
 <script>
@@ -58,18 +74,9 @@ import 'photoswipe/style.css';
             start: 'top 60%',
             end: 'top 20%',
             scrub: true,
-            markers: true
+            markers: false
         },
-        background: 'rgba(233, 218, 196, 0.7)',
+        background: 'rgba(233, 218, 196, 0.5)',
         stagger: 1
     })
-
-    import PhotoSwipeLightbox from 'photoswipe/lightbox'
-
-    const lightbox = new PhotoSwipeLightbox({
-      gallery: '#gallery',
-      children: 'a',
-      pswpModule: () => import('photoswipe')
-    });
-    lightbox.init();
 </script>

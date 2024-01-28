@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro"
+import H2 from "../components/H2.astro"
+import SectionContent from "../components/SectionContent.astro"
+import GalleryAllPhotos from "../components/GalleryAllPhotos.astro"
+---
+
+<Layout title='Andrea Hernandez | Gallery' bg='bg-cream-white'>
+<SectionContent class="pt-20">
+    <H2>Gallery</H2>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <GalleryAllPhotos />
+</SectionContent>
+    
+</Layout>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import SplitType from 'split-type';
+
+    gsap.registerPlugin(ScrollTrigger)
+</script>
+
+<!-- <style>
+    #top {
+        animation: hide 1s ease-out forwards 500ms;
+        width: 100%;
+        height: 50vh;
+        background: black;
+        z-index: 500;
+    }
+
+    @keyframes hide {
+        to {
+            height: 0;
+        }
+    }
+
+</style> -->

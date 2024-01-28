@@ -1,15 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TimelineContent from '../components/TimelineContent.astro';
-import Mouse from '../components/Mouse.astro';
 import HeroIntro from '../components/HeroIntro.astro';
 import H2 from '../components/H2.astro';
 import Gallery from '../components/Gallery.astro';
+import SectionContent from '../components/SectionContent.astro';
 ---
 
-<Layout title='Andrea Hernandez | Portfolio'>
+<Layout 
+title='Andrea Hernandez | Portfolio'
+>
 	<main>
-		<Mouse />
 		<section id="home">
 			<div class="flex md:min-h-screen max-md:flex-col-reverse max-md:flex-s max-md:w-full">
 				<HeroIntro />
@@ -20,14 +21,14 @@ import Gallery from '../components/Gallery.astro';
 			</div>
 		</section>
 		<div id="bg" class="bg-cream-white relative rounded-t-3xl">
-			<section id="about" class="relative max-md:px-6 max-2xl:px-12 px-32 py-16">
+			<SectionContent class="py-16" id="about">
 				<H2>About Me</H2>
 				<TimelineContent />
-			</section>
-			<section id="gallery" class="relative px-32 py-16">
+			</SectionContent>
+			<SectionContent id="gallery">
 				<H2>Gallery</H2>
 				<Gallery />
-			</section>
+			</SectionContent>
 		</div>
 	</main>
 </Layout>

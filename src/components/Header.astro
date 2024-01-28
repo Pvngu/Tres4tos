@@ -1,19 +1,39 @@
-<header class="md:fixed top-0 z-10 flex items-center justify-between w-full px-24 max-md:py-6 py-8 text-cream-white max-md:px-3">
-    <a href="/" class="text-3xl font-cursive max-md:text-2xl">
+<header class="fixed top-0 z-10 flex items-center justify-between w-full px-24 max-md:py-6 py-8 text-cream-white max-md:px-3">
+    <a href="/" class="text-3xl font-cursive max-lg:text-2xl">
         Andrea Hernandez
     </a>
     <ul class="flex font-bold lg:text-xl gap-x-14 font-main text-cream-white">
         <li>
-            <a class="max-md:hidden" href="#home">Home</a>
+            <a class="max-md:hidden" href="/#home">Home</a>
         </li>
         <li>
-            <a class="max-md:hidden" href="#about">About</a>
+            <a class="max-md:hidden" href="/#about">About</a>
         </li>
         <li>
-            <a class="max-md:hidden" href="#gallery">Gallery</a>
+            <a class="max-md:hidden" href="/gallery">Gallery</a>
         </li>
-        <li id="xd">
-            <a class="max-md:hidden" href="#contact">Contact</a>
+        <li>
+            <a class="max-md:hidden" href="/#contact">Contact</a>
         </li>
     </ul>
 </header>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    gsap.to('header', {
+        scrollTrigger: {
+            trigger: '#about',
+            start: 'top 30%',
+            end: 'top',
+            markers: false,
+            scrub: true
+        },
+        background: '#e7a054',
+        paddingTop: '1rem',
+        paddingBottom: '1rem'
+    })
+</script>

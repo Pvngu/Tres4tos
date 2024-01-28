@@ -23,7 +23,6 @@
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     import SplitType from 'split-type'
 
-    const about = document.getElementById('about')
     const header = document.getElementById('headerIntro')
 
     gsap.registerPlugin(ScrollTrigger)
@@ -48,7 +47,7 @@
 
     gsap.to(header, {
             scrollTrigger: {
-                trigger: about,
+                trigger: '#about',
                 start: 'top 100%',
                 end: 'top 30%',
                 scrub: true
