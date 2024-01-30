@@ -29,8 +29,8 @@ const ITEM = [
                     <span class="font-semibold mb-6 text-8xl font-main md:translate-x-11 tracking-[5vw] addStroke inline-block text-nowrap">{item.date}</span>
                     <p class="font-light font-main leading-10 max-md:text-base text-xl text-justify">{item.text}</p>
                 </div>
-                <div class="md:w-1/2 w-full max-md:h-64 h-[480px] overflow-hidden bg-black rounded-3xl">
-                    <img class="object-cover size-full" src={item.image} alt={item.alt}>
+                <div class="md:w-1/2 w-full max-md:h-64 overflow-hidden bg-black rounded-3xl">
+                    <img class="object-cover size-full" loading="lazy" src={item.image} alt={item.alt}>
                 </div>
             </div>
         ))

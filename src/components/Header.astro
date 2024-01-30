@@ -1,24 +1,33 @@
-<header class="absolute top-0 z-10 flex items-center justify-between w-full px-24 max-md:py-6 py-8 text-cream-white max-md:px-3">
-    <a href="/" class="text-3xl font-cursive max-lg:text-2xl">
-        Andrea Hernandez
-    </a>
-    <ul class="flex font-bold lg:text-xl gap-x-14 font-main text-cream-white">
-        <li>
-            <a class="max-md:hidden" href="/#home">Home</a>
-        </li>
-        <li>
-            <a class="max-md:hidden" href="/#about">About</a>
-        </li>
-        <li>
-            <a class="max-md:hidden" href="/gallery">Gallery</a>
-        </li>
-        <li>
-            <a class="max-md:hidden" href="/#contact">Contact</a>
-        </li>
-    </ul>
+---
+import HamburgerMenu from "./HamburgerMenu.astro";
+---
+
+<header>
+    <nav>
+        <div class="fixed top-0 z-10 flex items-center justify-between w-full px-24 max-md:py-6 py-8 text-cream-white max-md:px-5">
+            <a href="/" class="text-3xl font-cursive max-lg:text-2xl">
+                Andrea Hernandez
+            </a>
+            <ul class="flex max-md:hidden font-bold lg:text-xl gap-x-14 font-main text-cream-white">
+                <li>
+                    <a href="/#home">Home</a>
+                </li>
+                <li>
+                    <a href="/#about">About</a>
+                </li>
+                <li>
+                    <a href="/gallery">Gallery</a>
+                </li>
+                <li>
+                    <a href="/#contact">Contact</a>
+                </li>
+            </ul>
+            <HamburgerMenu />
+        </div>
+    </nav>
 </header>
 
-<!-- <script>
+<script>
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -36,4 +45,4 @@
         paddingTop: '1rem',
         paddingBottom: '1rem'
     })
-</script> -->
+</script>
