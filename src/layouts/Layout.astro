@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import MobileNavbar from '../components/MobileNavbar.astro';
 
 interface Props {
 	title: string
@@ -32,6 +33,7 @@ const {
 </head>
 <body class=`min-h-screen ${bg}`>
 	<Header />
+	<MobileNavbar />
 	<slot />
 	<script>
 		import Lenis from '@studio-freight/lenis'
@@ -47,9 +49,6 @@ const {
 			}
 
 			requestAnimationFrame(raf)
-		}
-		else {
-			console.log('the code is not running rn');
 		}
 	</script>
 </body>

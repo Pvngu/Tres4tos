@@ -1,5 +1,5 @@
-<label class="hamburger md:hidden z-50">
-    <input type="checkbox" onclick="mobileNavbar()">
+<label class="hamburger md:hidden z-50 relative">
+    <input type="checkbox">
     <svg viewBox="0 0 32 32">
       <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
       <path class="line" d="M7 16 27 16"></path>
@@ -47,17 +47,22 @@
     }
 </style>
 
-<script type="text/javascript">
-    const button = document.getElementsByTagName('input');
-
-    function mobileNavbar() {
-        
-        const nav = document.getElementById('mobileNavbar');
-        if(button.checked) {
-            nav.classList.remove('active');
-        }
-        else{
-            nav.classList.add('active');
-        }
+<script>
+  const checkbox = document.querySelector<HTMLInputElement>('.hamburger input');
+  const nav = document.getElementById('mobileNavbar');
+  const links = document.querySelectorAll('#mobileNavbar ul li a');
+  checkbox?.addEventListener('change', () => {
+    if(checkbox.checked) {
+      nav!.style.left = '0';
+      links.forEach((l) => {
+        l.addEventListener('click', () => {
+          checkbox.checked = false;
+          nav!.style.left = '100%';
+        })
+      })
     }
+    else {
+      nav!.style.left = '100%';
+    }
+  })
 </script>
