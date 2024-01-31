@@ -37,66 +37,65 @@ const ITEM = [
     }
 </article>
 
-// <script>
-//     import { gsap } from "gsap";
-//     import { ScrollTrigger } from "gsap/ScrollTrigger";
-//     import SplitType from 'split-type';
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import SplitType from 'split-type';
 
-//     gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger)
 
-//     const header = document.getElementById('about')?.querySelector('h2');
+    const header = document.getElementById('about')?.querySelector('h2');
 
-//     const text = new SplitType(header as HTMLElement, { types: 'chars'});
+    const text = new SplitType(header as HTMLElement, { types: 'chars'});
 
-//     gsap.from(text.chars, {
-//         scrollTrigger: {
-//             trigger: header,
-//             start: 'top 80%',
-//             scrub: false,
-//             markers: false
-//         },
-//         y: 30,
-//         opacity: 0,
-//         stagger: 0.05
-//     })
-//     const timelines = document.querySelectorAll('.timeline-card');
+    gsap.from(text.chars, {
+        scrollTrigger: {
+            trigger: header,
+            start: 'top 80%',
+            scrub: false,
+            markers: false
+        },
+        y: 30,
+        opacity: 0
+    })
+    const timelines = document.querySelectorAll('.timeline-card');
 
-//     timelines.forEach((timeline) => {
+    timelines.forEach((timeline) => {
 
-//         // Animation for date title
+        // Animation for date title
 
-//         const date = timeline.getElementsByTagName('span');
-//         const textD = new SplitType(date, { types:'chars'})
+        const date = timeline.getElementsByTagName('span');
+        const textD = new SplitType(date, { types:'chars'})
 
-//         gsap.to(textD.chars, {
-//             scrollTrigger: {
-//                 trigger: date,
-//                 start: 'top 60%',
-//                 end: 'top 30%',
-//                 scrub: true,
-//                 markers: false
-//             },
-//             color: 'rgba(91, 51, 48, 0.8)'
-//         })
+        gsap.to(textD.chars, {
+            scrollTrigger: {
+                trigger: date,
+                start: 'top 60%',
+                end: 'top 30%',
+                scrub: true,
+                markers: false
+            },
+            color: 'rgba(91, 51, 48, 0.8)'
+        })
 
-//         // Animation for paragraph
+        // Animation for paragraph
 
-//         const p = timeline.getElementsByTagName('p');
-//         const textP = new SplitType(p , { types: 'words,chars' })
+        const p = timeline.getElementsByTagName('p');
+        const textP = new SplitType(p , { types: 'words,chars' })
 
-//         gsap.from(textP.chars, {
-//             scrollTrigger: {
-//                 trigger: p,
-//                 start: 'top 100%',
-//                 end: 'top 50%',
-//                 scrub: true,
-//                 markers: false
-//             },
-//             opacity: 0.5,
-//             stagger: 1
-//         })
-//     })
-// </script>
+        gsap.from(textP.chars, {
+            scrollTrigger: {
+                trigger: p,
+                start: 'top 100%',
+                end: 'top 50%',
+                scrub: true,
+                markers: false
+            },
+            opacity: 0.3,
+            stagger: 1
+        })
+    })
+</script>
 
 <style>
     .addStroke {
