@@ -35,14 +35,22 @@ const {
 	<slot />
 	<script>
 		import Lenis from '@studio-freight/lenis'
-		const lenis = new Lenis()
 
-		function raf(time: number) {
-		lenis.raf(time)
-		requestAnimationFrame(raf)
+		const isTouchDevice = 'ontouchstart' in window;
+
+		if(!isTouchDevice) {
+			const lenis = new Lenis()
+
+			function raf(time: number) {
+			lenis.raf(time)
+			requestAnimationFrame(raf)
+			}
+
+			requestAnimationFrame(raf)
 		}
-
-		requestAnimationFrame(raf)
+		else {
+			console.log('the code is not running rn');
+		}
 	</script>
 </body>
 </html>
