@@ -38,6 +38,7 @@
                 scrub: false
             },
             y: 100,
+            ease: 'power4.out',
             stagger: 0.08,
             onComplete: () => {
                 document.getElementById('coffee-bean')?.classList.add('active');
@@ -63,24 +64,10 @@
         overflow: hidden;
 	}
 
-    h1 span {
-        display: inline-block;
-        transform: translateY(75%);
-        transition: transform 400ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    }
-
-    h1 span.active {
-        transform: translateY(0%); 
-    }
-
     P {
         opacity: 0;
         animation: p 2000ms ease-in-out forwards;
         font-size: clamp(12px, 1vw ,16px);
-    }
-
-    .c-space {
-        margin-right: 10px;
     }
 
     @keyframes p {
