@@ -27,9 +27,9 @@ const ITEM = [
             <div class={`flex ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} items-center gap-20 max-md:gap-4 max-md:flex-col w-full timeline-card`}>
                 <div class="md:w-1/2 text-center relative">
                     <span class="font-semibold mb-6 text-8xl font-main md:translate-x-11 tracking-[5vw] addStroke inline-block whitespace-nowrap">{item.date}</span>
-                    <p class="font-light font-main leading-10 max-md:text-base text-xl text-justify">{item.text}</p>
+                    <p class="font-light font-main leading-10 max-md:text-base max-2xl:text-lg text-xl text-justify">{item.text}</p>
                 </div>
-                <div class="md:w-1/2 w-full max-md:h-64 overflow-hidden bg-black rounded-3xl">
+                <div class="md:w-1/2 w-full max-md:max-h-64 max-lg:h-[400px] max-h-[600px] overflow-hidden bg-black rounded-3xl">
                     <img class="object-cover size-full" loading="lazy" src={item.image} alt={item.alt}>
                 </div>
             </div>

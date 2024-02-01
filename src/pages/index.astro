@@ -5,6 +5,7 @@ import HeroIntro from '../components/HeroIntro.astro';
 import H2 from '../components/H2.astro';
 import Gallery from '../components/Gallery.astro';
 import SectionContent from '../components/SectionContent.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout 
@@ -14,7 +15,7 @@ title='Andrea Hernandez | Portfolio'
 		<section id="home">
 			<div class="flex min-h-screen max-md:flex-col-reverse max-md:w-full">
 				<HeroIntro />
-				<div class="md:w-1/2 bg-black max-sm:grow">
+				<div class="md:w-1/2 bg-black max-md:grow h-auto">
 					<img class="object-cover size-full" src="/images/hero-image.jpg" alt="andrea's picture">
 				</div>
 			</div>
@@ -29,5 +30,6 @@ title='Andrea Hernandez | Portfolio'
 				<Gallery />
 			</SectionContent>
 		</div>
+		<Footer />
 	</main>
 </Layout>
