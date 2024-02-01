@@ -65,26 +65,25 @@ const ITEM = [
 
         // Animation for date title
 
-        // const date = timeline.getElementsByTagName('span');
-        // const textD = new SplitType(date, { types:'chars'})
+        const date = timeline.getElementsByTagName('span');
+        const textD = new SplitType(date, { types:'chars'})
 
-        // gsap.to(textD.chars, {
-        //     scrollTrigger: {
-        //         trigger: date,
-        //         start: 'top 60%',
-        //         end: 'top 30%',
-        //         scrub: true,
-        //         markers: false
-        //     },
-        //     color: 'rgba(91, 51, 48, 0.8)'
-        // })
+        gsap.to(textD.chars, {
+            scrollTrigger: {
+                trigger: date,
+                start: 'top 60%',
+                end: 'top 30%',
+                scrub: true,
+                markers: false
+            },
+            color: 'rgba(91, 51, 48, 0.8)'
+        })
 
         // Animation for paragraph
 
         const p = timeline.getElementsByTagName('p');
-        const textP = new SplitType(p , { types: 'words,chars' })
 
-        gsap.from(textP.chars, {
+        gsap.from(p, {
             scrollTrigger: {
                 trigger: p,
                 start: 'top 100%',
@@ -92,8 +91,7 @@ const ITEM = [
                 scrub: true,
                 markers: false
             },
-            opacity: 0.3,
-            stagger: 1
+            opacity: 0.2
         })
     })
 </script>
