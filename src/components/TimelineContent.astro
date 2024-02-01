@@ -55,6 +55,7 @@ const ITEM = [
             scrub: false,
             markers: false
         },
+        stagger: 0.1,
         y: 30,
         opacity: 0
     })
@@ -80,20 +81,20 @@ const ITEM = [
 
         // Animation for paragraph
 
-        const p = timeline.getElementsByTagName('p');
-        const textP = new SplitType(p , { types: 'words,chars' })
+        // const p = timeline.getElementsByTagName('p');
+        // const textP = new SplitType(p , { types: 'words,chars' })
 
-        gsap.from(textP.chars, {
-            scrollTrigger: {
-                trigger: p,
-                start: 'top 100%',
-                end: 'top 50%',
-                scrub: true,
-                markers: false
-            },
-            opacity: 0.3,
-            stagger: 1
-        })
+        // gsap.from(textP.chars, {
+        //     scrollTrigger: {
+        //         trigger: p,
+        //         start: 'top 100%',
+        //         end: 'top 50%',
+        //         scrub: true,
+        //         markers: false
+        //     },
+        //     opacity: 0.3,
+        //     stagger: 1
+        // })
     })
 </script>
 
