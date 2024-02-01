@@ -1,10 +1,11 @@
 ---
 import HamburgerMenu from "./HamburgerMenu.astro";
+import MobileNavbar from '../components/MobileNavbar.astro';
 ---
 
 <header>
     <nav>
-        <div class="fixed top-0 z-50 flex items-center justify-between w-full px-24 max-md:py-6 max-md:bg-sunset-gold py-8 text-cream-white max-md:px-5">
+        <div id="desktopNav" class="fixed top-0 z-50 flex items-center justify-between w-full px-24 max-md:py-6 max-md:bg-sunset-gold py-8 text-cream-white max-md:px-5">
             <a href="/" class="text-3xl font-cursive max-lg:text-2xl">
                 Andrea Hernandez
             </a>
@@ -25,24 +26,27 @@ import HamburgerMenu from "./HamburgerMenu.astro";
             <HamburgerMenu />
         </div>
     </nav>
+    <MobileNavbar />
 </header>
 
-<!-- <script>
+<script>
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 
     gsap.registerPlugin(ScrollTrigger)
 
-    gsap.to('header', {
+    const nav = document.getElementById('desktopNav');
+
+    gsap.to(nav, {
         scrollTrigger: {
             trigger: '#about',
-            start: 'top 30%',
+            start: 'top 100px',
             end: 'top',
-            markers: false,
+            markers: true,
             scrub: true
         },
         background: '#e7a054',
         paddingTop: '1rem',
         paddingBottom: '1rem'
     })
-</script> -->
+</script>
