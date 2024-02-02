@@ -5,6 +5,7 @@ import HeroIntro from '../components/HeroIntro.astro';
 import H2 from '../components/H2.astro';
 import Gallery from '../components/Gallery.astro';
 import SectionContent from '../components/SectionContent.astro';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout 
@@ -28,8 +29,9 @@ title='Andrea Hernandez | Portfolio'
 				<H2>Gallery</H2>
 				<Gallery />
 			</SectionContent>
-			<SectionContent id="contact">
+			<SectionContent class="bg-blue-200" id="contact">
 				<H2>Contact Me</H2>
+				<ContactForm />
 			</SectionContent>
 		</div>
 	</main>

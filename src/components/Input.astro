@@ -1,0 +1,18 @@
+---
+interface Props {
+    text?: string,
+    name: string,
+    type?: 'text' | 'password' | 'number' | 'email' | 'checkbox';
+}
+
+const {
+    text,
+    name,
+    type = 'text'
+} = Astro.props;
+---
+
+<div class="flex-col flex flex-grow">
+    <label class="font-medium text-lg">{text}</label>
+    <input class="py-3 px-3 rounded-xl border-[1px] border-mocha-brown w-full" type={type} name={name}>
+</div>
