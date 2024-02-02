@@ -9,7 +9,7 @@ console.log(images);
 <div class="w-11/12 m-auto columns-3 gap-[10px] max-md:columns-1 max-xl:columns-2" id="my-gallery">
         {
             images.map(image => (
-                <div class="mb-[10px] break-inside-avoid">
+                <div class="mb-[10px] break-inside-avoid rounded-xl overflow-hidden hover:scale-[1.02] transition-all">
                     <a
                     href={image.src}
                     data-pswp-width={image.width}
