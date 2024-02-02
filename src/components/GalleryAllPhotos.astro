@@ -1,34 +1,38 @@
-<div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
-    <div class="grid-item">
-        <img src="/gallery/img-1.jpg" alt="">
-    </div>
-    <div class="grid-item">
-        <img src="/gallery/img-2.jpg" alt="">
-    </div>
-    <div class="grid-item">
-        <img src="/gallery/img-2.jpg" alt="">
-    </div>
-    <div class="grid-item">
-        <img src="/gallery/img-2.jpg" alt="">
-    </div>
-    <div class="grid-item">
-        <img src="/gallery/img-2.jpg" alt="">
-    </div>
+---
+import 'photoswipe/style.css';
+const images = await Astro.glob("/public/gallery/*").then(files => {
+    return files.map(file => file.default);
+});
+console.log(images);
+---
+
+<div class="w-11/12 m-auto columns-3 gap-[10px] max-md:columns-1 max-xl:columns-2" id="my-gallery">
+        {
+            images.map(image => (
+                <div class="mb-[10px] break-inside-avoid">
+                    <a
+                    href={image.src}
+                    data-pswp-width={image.width}
+                    data-pswp-height={image.height}
+                    target="_blank">
+                    <img 
+                    src={image.src}
+                    alt=""
+                    loading="lazy"
+                    >
+                    </a>
+                </div>
+            ))
+        }
 </div>
 
-  <!-- <script>
-    import Masonry from 'masonry-layout';
-    // vanilla JS
-    // init with element
-    var grid = document.querySelector('.grid');
-    var msnry = new Masonry( grid, {
-    // options...
-    itemSelector: '.grid-item',
-    columnWidth: 200
-    });
+<script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
-    // init with selector
-    var msnry = new Masonry( '.grid', {
-    // options...
+    const lightbox = new PhotoSwipeLightbox({
+    gallery: '#my-gallery',
+    children: 'a',
+    pswpModule: () => import('photoswipe')
     });
-  </script> -->
+    lightbox.init();
+</script>
