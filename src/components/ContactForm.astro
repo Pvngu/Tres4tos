@@ -4,7 +4,7 @@ import InputContainer from '../components/InputContainer.astro';
 ---
 
 <div class="flex w-full max-md:flex-col justify-center items-center">
-    <div class="md:w-1/2 flex flex-col justify-center">
+    <div class="max-lg:w-1/2 lg:w-[35%] max-md:w-[80%] flex flex-col justify-center">
         <div class="m-auto">
             <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
             <dotlottie-player src="https://lottie.host/46acf6af-d234-419f-998d-3ea9a7b04be3/UDp3ufY4HG.json" background="transparent" speed="0.8" loop autoplay></dotlottie-player>
@@ -23,7 +23,7 @@ import InputContainer from '../components/InputContainer.astro';
         </InputContainer>
         <InputContainer name="Message">
             <div class="flex-col flex flex-grow">
-                <textarea class="py-3 px-3 rounded-xl border-[1px] border-mocha-brown w-full bg-cream-white" name="message" id="" cols="30" rows="8"></textarea>
+                <textarea class="p-3 max-md:text-sm max-md:p-2 rounded-xl border-[1px] border-mocha-brown w-full bg-cream-white" name="message" id="" cols="30" rows="8"></textarea>
             </div>
         </InputContainer>
         <input type="submit" class="font-main bg-mocha-brown px-6 py-2 text-cream-white font-semibold float-right mt-4 rounded-xl cursor-pointer hover:scale-105 transition-all">
