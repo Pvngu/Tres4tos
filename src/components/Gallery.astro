@@ -1,34 +1,34 @@
 <div class="flex gap-4 flex-col">
     <!-- top row -->
-    <div class="flex max-md:flex-col w-full gap-4" id="gallery">
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+    <div class="flex max-md:flex-col w-full gap-4">
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-1.jpg">
         </div>
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-2.jpg">
         </div>
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-3.jpg">
         </div>
     </div>
     <!-- middle row -->
-    <div class="flex max-md:flex-col w-full gap-4" id="gallery">
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+    <div class="flex max-md:flex-col w-full gap-4">
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-4.jpg">
         </div>
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem]">
+        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-5.jpg">
         </div>
     </div>
     <!-- bottom row -->
-    <div class="flex max-md:flex-col w-full gap-4" id="gallery">
-        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem]">
+    <div class="flex max-md:flex-col w-full gap-4">
+        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem] skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-6.jpg">
         </div>
-        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem]">
+        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem] skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-7.jpg">
         </div>
-        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem] overflow-hidden">
+        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem] skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-8.jpg">
         </div>
     </div>
@@ -42,6 +42,34 @@
         View Complete Gallery
     </a>
 </div>
+
+<style>
+    /* SKELETON */
+.skeleton {
+    position: relative;
+}
+.skeleton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: linear-gradient(90deg, #eee, #f9f9f9, #eee);
+    background-size: 200%;
+    animation: skeleton 1s infinite reverse;
+}
+@keyframes skeleton {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+/* SKELETON */
+</style>
 
 <script>
     import { gsap } from "gsap";
@@ -78,5 +106,13 @@
         },
         background: 'rgba(233, 218, 196, 0.5)',
         stagger: 1
+    })
+
+    const allSkeleton = document.querySelectorAll('.skeleton')
+
+    window.addEventListener('load', function() {
+        allSkeleton.forEach(item=> {
+            item.classList.remove('skeleton')
+        })
     })
 </script>
