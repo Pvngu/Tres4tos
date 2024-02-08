@@ -29,7 +29,7 @@ const ITEM = [
                     <span class="font-semibold mb-6 text-8xl font-main md:translate-x-11 tracking-[5vw] addStroke inline-block whitespace-nowrap">{item.date}</span>
                     <p class="font-light font-main leading-10 max-md:text-base max-2xl:text-lg text-xl text-justify">{item.text}</p>
                 </div>
-                <div class="md:w-1/2 w-full max-md:max-h-64 max-lg:h-[400px] max-h-[500px] overflow-hidden rounded-3xl skeleton">
+                <div class="md:w-1/2 w-full max-md:max-h-64 overflow-hidden rounded-3xl imageContainer skeleton">
                     <img class="object-cover size-full" loading="lazy" src={item.image} alt={item.alt}>
                 </div>
             </div>
@@ -97,35 +97,12 @@ const ITEM = [
 </script>
 
 <style>
+    .imageContainer {
+        height: clamp(300px, 30vw, 500px);
+    }
     .addStroke {
         color: #e9dac4;
         -webkit-text-stroke-color: #5b3330;
         -webkit-text-stroke-width: 1.5px;
     }
-
-    /* SKELETON */
-    .skeleton {
-        position: relative;
-    }
-    .skeleton::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
-        background: linear-gradient(90deg, #eee, #f9f9f9, #eee);
-        background-size: 200%;
-        animation: skeleton 1s infinite reverse;
-    }
-    @keyframes skeleton {
-        0% {
-            background-position: -100% 0;
-        }
-        100% {
-            background-position: 100% 0;
-        }
-    }
-/* SKELETON */
 </style>

@@ -1,35 +1,35 @@
 <div class="flex gap-4 flex-col">
     <!-- top row -->
     <div class="flex max-md:flex-col w-full gap-4">
-        <div class="w-full imageContainer skeleton">
-            <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-1.jpg">
+        <div class="imageContainer skeleton">
+            <img class="object-cover size-full " loading="lazy" src="/gallery/img-1.jpg">
         </div>
-        <div class="w-full imageContainer skeleton">
-            <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-2.jpg">
+        <div class="imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src="/gallery/img-2.jpg">
         </div>
-        <div class="w-full imageContainer skeleton">
-            <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-3.jpg">
+        <div class="imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src="/gallery/img-3.jpg">
         </div>
     </div>
     <!-- middle row -->
     <div class="flex max-md:flex-col w-full gap-4">
-        <div class="w-full imageContainer skeleton">
-            <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-4.jpg">
+        <div class="imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src="/gallery/img-4.jpg">
         </div>
-        <div class="w-full imageContainer skeleton">
-            <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-5.jpg">
+        <div class="imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src="/gallery/img-5.jpg">
         </div>
     </div>
     <!-- bottom row -->
     <div class="flex max-md:flex-col w-full gap-4">
-        <div class="w-full imageContainer skeleton">
-            <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-6.jpg">
+        <div class="imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src="/gallery/img-6.jpg">
         </div>
-        <div class="w-full imageContainer skeleton">
-            <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-7.jpg">
+        <div class="imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src="/gallery/img-7.jpg">
         </div>
-        <div class="w-full imageContainer skeleton">
-            <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-8.jpg">
+        <div class="imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src="/gallery/img-8.jpg">
         </div>
     </div>
 </div>
@@ -44,37 +44,23 @@
 </div>
 
 <style>
+    .imageContainer{
+        width: 100%;
+        border-radius: 0.75rem;
+        overflow: hidden;
+    }
+
     @media(min-width: 768px) {
         .imageContainer {
             height: clamp(160px, 27vw, 480px);
         }
     }
 
-    /* SKELETON */
-.skeleton {
-    position: relative;
-}
-.skeleton::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background: linear-gradient(90deg, #eee, #f9f9f9, #eee);
-    background-size: 200%;
-    animation: skeleton 1s infinite reverse;
-}
-@keyframes skeleton {
-    0% {
-        background-position: -100% 0;
+    @media(max-width: 768px) {
+        .imageContainer {
+            height: clamp(160px, 60vw, 500px);
+        }
     }
-    100% {
-        background-position: 100% 0;
-    }
-}
-/* SKELETON */
 </style>
 
 <script>
