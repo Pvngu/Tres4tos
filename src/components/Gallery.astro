@@ -1,34 +1,34 @@
 <div class="flex gap-4 flex-col">
     <!-- top row -->
     <div class="flex max-md:flex-col w-full gap-4">
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
+        <div class="w-full imageContainer skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-1.jpg">
         </div>
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
+        <div class="w-full imageContainer skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-2.jpg">
         </div>
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
+        <div class="w-full imageContainer skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-3.jpg">
         </div>
     </div>
     <!-- middle row -->
     <div class="flex max-md:flex-col w-full gap-4">
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
+        <div class="w-full imageContainer skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-4.jpg">
         </div>
-        <div class="w-full md:min-h-[10rem] md:max-h-[30rem] skeleton">
+        <div class="w-full imageContainer skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-5.jpg">
         </div>
     </div>
     <!-- bottom row -->
     <div class="flex max-md:flex-col w-full gap-4">
-        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem] skeleton">
+        <div class="w-full imageContainer skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-6.jpg">
         </div>
-        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem] skeleton">
+        <div class="w-full imageContainer skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-7.jpg">
         </div>
-        <div class="w-full max-md:h-auto min-h-[10rem] md:max-h-[30rem] skeleton">
+        <div class="w-full imageContainer skeleton">
             <img class="object-cover size-full rounded-xl" loading="lazy" src="/gallery/img-8.jpg">
         </div>
     </div>
@@ -44,6 +44,12 @@
 </div>
 
 <style>
+    @media(min-width: 768px) {
+        .imageContainer {
+            height: clamp(160px, 27vw, 480px);
+        }
+    }
+
     /* SKELETON */
 .skeleton {
     position: relative;

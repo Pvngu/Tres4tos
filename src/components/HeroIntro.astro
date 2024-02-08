@@ -31,7 +31,6 @@
 
     splitTypes.forEach((char) => {
         const text = new SplitType(char as HTMLElement, { types: 'chars'})
-
         gsap.from(text.chars, {
             scrollTrigger: {
                 trigger: char,

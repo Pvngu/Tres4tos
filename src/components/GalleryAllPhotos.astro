@@ -3,7 +3,7 @@ import 'photoswipe/style.css';
 const images = await Astro.glob("/public/gallery/*").then(files => {
     return files.map(file => file.default);
 });
-console.log(images);
+
 ---
 
 <div class="w-11/12 m-auto columns-3 gap-[10px] max-md:columns-1 max-xl:columns-2" id="my-gallery">
