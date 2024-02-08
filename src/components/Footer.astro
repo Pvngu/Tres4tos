@@ -1,9 +1,19 @@
+---
+import Instagram from '../icons/Instagram.astro';
+import Linkedin from '../icons/Linkedin.astro';
+import Udemy from '../icons/Udemy.astro';
+---
 <footer class="relative max-md:px-6 max-2xl:px-12 px-32 bg-cream-white">
     <div class="border-t-2 border-mocha-brown">
-        <div class="py-6">
+        <div class="py-6 flex justify-between">
             <a href="/" class="font-main font-bold text-lg text-mocha-brown">
                 Andrea Hernandez
             </a>
+            <div class="flex gap-x-4">
+                <Instagram />
+                <Linkedin />
+                <Udemy />
+            </div>
         </div>
     </div>
 </footer>
