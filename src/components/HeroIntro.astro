@@ -1,72 +1,90 @@
-<div class="relative flex items-center justify-center md:w-1/2 bg-cover bg-hero-texture max-md:grow max-md:max-h-[450px]">
-    <div class="md:px-24 max-md:px-10 max-md:py-10" id="headerIntro">
-        <h1 class="font-bold whitespace-nowrap font-main text-cream-white appear-text">
+<div
+    class="relative flex -top-14 items-center justify-center md:w-1/2 bg-cover bg-hero-texture max-md:grow max-md:max-h-[450px]"
+>
+    <div class="md:px-24 max-md:pl-10 max-md:py-10" id="headerIntro">
+        <h1
+            class="font-bold whitespace-nowrap font-main text-cream-white appear-text"
+        >
             I'm Andrea Hernandez.
         </h1>
         <div class="flex">
-            <h1 class="font-bold whitespace-nowrap font-main text-cream-white appear-text">
+            <h1
+                class="font-bold whitespace-nowrap font-main text-cream-white appear-text"
+            >
                 A Coffee Specialist
             </h1>
-            <div class="w-1/6 relative translate-x-5 hover:scale-105 transition-all">
-                <img class="absolute max-w-32 " id="coffee-bean" src="/images/coffee-bean-icon.svg" alt="coffee bean">
+            <div
+                class="w-1/6 relative translate-x-5 hover:scale-105 transition-all"
+            >
+                <img
+                    class="absolute max-w-32"
+                    id="coffee-bean"
+                    src="/images/coffee-bean-icon.svg"
+                    alt="coffee bean"
+                />
             </div>
         </div>
-        <h1 class="font-bold whitespace-nowrap font-main opacity-70 text-flame-orange appear-text">
+        <h1
+            class="font-bold whitespace-nowrap font-main opacity-70 text-flame-orange appear-text"
+        >
             Based in California.
         </h1>
-        <p class="font-bold font-main text-cream-white max-md:mt-3">I have a strong engineering and coordination background that I can implement in any type of applications</p>
+        <p class="font-bold font-main text-cream-white max-md:mt-3">
+            I have a strong engineering and coordination background that I can
+            implement in any type of applications
+        </p>
     </div>
 </div>
 
 <script>
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
-    import SplitType from 'split-type'
+    import SplitType from "split-type";
 
-    const header = document.getElementById('headerIntro')
+    const header = document.getElementById("headerIntro");
 
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
-    const splitTypes = document.querySelectorAll('.appear-text')
+    const splitTypes = document.querySelectorAll(".appear-text");
 
     splitTypes.forEach((char) => {
-        const text = new SplitType(char as HTMLElement, { types: 'chars'})
+        const text = new SplitType(char as HTMLElement, { types: "chars" });
         gsap.from(text.chars, {
             scrollTrigger: {
                 trigger: char,
-                scrub: false
+                scrub: false,
             },
             y: 100,
-            ease: 'power4.out',
+            ease: "power4.out",
             stagger: 0.08,
             onComplete: () => {
-                document.getElementById('coffee-bean')?.classList.add('active');
-            }
-        })
-    })
+                document.getElementById("coffee-bean")?.classList.add("active");
+            },
+        });
+    });
 
     gsap.to(header, {
-            scrollTrigger: {
-                trigger: '#about',
-                start: 'top 100%',
-                end: 'top 30%',
-                scrub: true
-            },
-            opacity: 0,
-            y: '50%'
-    })
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top 100%",
+            end: "top 30%",
+            scrub: true,
+        },
+        opacity: 0,
+        y: "50%",
+    });
 </script>
 
 <style>
-	h1 {
-		font-size: clamp(25px, 3.5vw ,60px);
+    h1 {
+        font-size: clamp(25px, 3.5vw, 60px);
         overflow: hidden;
-	}
+    }
 
     P {
         opacity: 0;
         animation: p 2000ms ease-in-out forwards;
-        font-size: clamp(12px, 1vw ,16px);
+        font-size: clamp(12px, 1vw, 16px);
     }
 
     @keyframes p {
@@ -83,8 +101,8 @@
         animation: pop 0.5s linear forwards;
     }
 
-    @keyframes pop{
-        50%  {
+    @keyframes pop {
+        50% {
             transform: scale(1.2);
         }
 
