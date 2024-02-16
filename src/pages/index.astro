@@ -1,22 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TimelineContent from '../components/TimelineContent.astro';
-import HeroIntro from '../components/HeroIntro.astro';
-import H2 from '../components/H2.astro';
-import Gallery from '../components/Gallery.astro';
-import SectionContent from '../components/SectionContent.astro';
-import ContactForm from '../components/ContactForm.astro';
+import Layout from "../layouts/Layout.astro";
+import TimelineContent from "../components/TimelineContent.astro";
+import HeroIntro from "../components/HeroIntro.astro";
+import H2 from "../components/H2.astro";
+import Gallery from "../components/Gallery.astro";
+import SectionContent from "../components/SectionContent.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
-<Layout 
-title='Andrea Hernandez | Portfolio'
->
+<Layout title="Andrea Hernandez | Portfolio">
 	<main>
 		<section id="home">
-			<div class="flex min-h-screen max-md:flex-col-reverse max-md:w-full">
+			<div
+				class="flex min-h-screen max-md:flex-col-reverse max-md:w-full"
+			>
 				<HeroIntro />
-				<div class="md:w-1/2 max-md:mt-[80px] bg-black max-md:grow">
-					<img class="object-cover size-full" src="/images/hero-image.jpg" alt="andrea's picture">
+				<div class="md:w-1/2 max-md:mt-[80px] bg-black">
+					<img
+						class="object-cover size-full"
+						src="/images/hero-image.jpg"
+						alt="andrea's picture"
+					/>
 				</div>
 			</div>
 		</section>
