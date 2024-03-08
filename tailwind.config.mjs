@@ -11,7 +11,8 @@ export default {
 			},
 			fontFamily: {
 				main: ['Poppins', 'sans-serif'],
-				cursive: ['Satisfy', 'cursive']
+				cursive: ['Satisfy', 'cursive'],
+				secondary: ["Inter", 'sans-serif']
 			},
 			backgroundImage: {
 				'hero-texture': "url('/images/coffee-beans-bg.svg')"
