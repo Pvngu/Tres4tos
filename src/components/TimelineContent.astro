@@ -26,8 +26,8 @@ const ITEM = [
         ITEM.map((item, index) => (
             <div class={`flex ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} items-center gap-20 max-md:gap-4 max-md:flex-col w-full timeline-card`}>
                 <div class="md:w-1/2 text-center relative">
-                    <span class="font-semibold mb-6 text-8xl font-main md:translate-x-11 tracking-[5vw] addStroke inline-block whitespace-nowrap">{item.date}</span>
-                    <p class="font-light font-main max-md:text-base max-2xl:text-[1.125rem] text-[1.25rem] leading-10 text-justify">{item.text}</p>
+                    <span class="font-semibold mb-6 text-8xl xl:text-9xl font-main md:translate-x-11 tracking-[5vw] addStroke inline-block whitespace-nowrap dateText">{item.date}</span>
+                    <p class="font-light font-main max-md:text-base text-[#3e312b] max-2xl:text-[1.125rem] text-[1.25rem] leading-10 text-justify">{item.text}</p>
                 </div>
                 <div class="md:w-1/2 w-full max-md:max-h-64 overflow-hidden rounded-3xl imageContainer skeleton">
                     <img class="object-cover size-full" loading="lazy" src={item.image} alt={item.alt}>
@@ -39,36 +39,16 @@ const ITEM = [
 
 <script>
     import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-    import SplitType from 'split-type';
 
-    gsap.registerPlugin(ScrollTrigger)
-
-    const header = document.getElementById('about')?.querySelector('h2');
-
-    const text = new SplitType(header as HTMLElement, { types: 'chars'});
-
-    gsap.from(text.chars, {
-        scrollTrigger: {
-            trigger: header,
-            start: 'top 80%',
-            scrub: false,
-            markers: false
-        },
-        stagger: 0.1,
-        y: 30,
-        opacity: 0
-    })
     const timelines = document.querySelectorAll('.timeline-card');
 
     timelines.forEach((timeline) => {
 
         // Animation for date title
 
-        const date = timeline.getElementsByTagName('span');
-        const textD = new SplitType(date, { types:'chars'})
+        const date = timeline.querySelector('.dateText');
 
-        gsap.to(textD.chars, {
+        gsap.to(date, {
             scrollTrigger: {
                 trigger: date,
                 start: 'top 60%',

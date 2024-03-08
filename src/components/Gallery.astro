@@ -66,27 +66,12 @@
 <script>
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
-    import SplitType from 'split-type';
 
     gsap.registerPlugin(ScrollTrigger)
 
     // title Animation
 
     const header = document.getElementById('gallery')?.querySelector('h2');
-
-    const text = new SplitType(header as HTMLElement, { types: 'chars'});
-
-    gsap.from(text.chars, {
-        scrollTrigger: {
-            trigger: header,
-            start: 'top 80%',
-            scrub: false,
-            markers: false
-        },
-        y: 30,
-        opacity: 0,
-        stagger: 0.05
-    })
 
     gsap.to('#bg', {
         scrollTrigger: {

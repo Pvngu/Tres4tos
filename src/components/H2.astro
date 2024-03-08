@@ -1,4 +1,4 @@
-<h2 class="max-md:text-3xl text-4xl mb-8 font-bold leading-normal font-main text-mocha-brown">
+<h2 class="max-md:text-3xl text-4xl mb-8 font-bold leading-normal font-main text-mocha-brown uppercase headingAnimation">
     <slot />
 </h2>
 
@@ -7,3 +7,30 @@
         font-size: clamp(2.5rem, 3.7vw, 4.3rem);
     }
 </style>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import SplitType from 'split-type';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const h2 = document.querySelectorAll('.headingAnimation');
+
+    h2.forEach(e => {
+        const text = new SplitType(e as HTMLElement, { types: 'chars'});
+        
+        gsap.from(text.chars, {
+        scrollTrigger: {
+            trigger: e,
+            start: 'top 80%',
+            scrub: false,
+            markers: false
+        },
+        stagger: 0.08,
+        ease: "circ.out",
+        y: 30,
+        opacity: 0
+    })
+    })
+</script>
