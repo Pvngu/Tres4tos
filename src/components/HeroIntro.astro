@@ -55,8 +55,8 @@
                 scrub: false,
             },
             y: 75,
-            ease: "circ.out",
-            stagger: 0.06,
+            ease: "steps.out",
+            stagger: 0.04,
             onComplete: () => {
                 document.getElementById("coffee-bean")?.classList.add("active");
             },
@@ -83,7 +83,7 @@
 
     P {
         opacity: 0;
-        animation: p 2000ms ease-in-out forwards;
+        animation: p 2500ms ease-in-out forwards;
         font-size: clamp(12px, 1vw, 16px);
     }
 
