@@ -42,26 +42,27 @@ const {
 	<script>
 		import Lenis from '@studio-freight/lenis'
 
-		const isTouchDevice = 'ontouchstart' in window;
+		const lenis = new Lenis()
 
-		if(!isTouchDevice) {
-			const lenis = new Lenis()
-
-			function raf(time: number) {
-			lenis.raf(time)
-			requestAnimationFrame(raf)
-			}
-
-			requestAnimationFrame(raf)
+		function raf(time: number) {
+		lenis.raf(time)
+		requestAnimationFrame(raf)
 		}
+
+		requestAnimationFrame(raf)
+
+		const hrefs = document.querySelectorAll('a[href^="#"]') as NodeListOf<HTMLAnchorElement>;
+		hrefs.forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			lenis.scrollTo((this as HTMLAnchorElement).getAttribute('href') || '')
+		});
+		})
 	</script>
 </body>
 </html>
 
 <style is:global>
-	html {
-		scroll-behavior: smooth;
-	}
 	/* ===== Scrollbar CSS ===== */
   /* Firefox */
   * {

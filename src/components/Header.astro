@@ -1,6 +1,8 @@
 ---
 import HamburgerMenu from "./HamburgerMenu.astro";
 import MobileNavbar from '../components/MobileNavbar.astro';
+
+const currentPath = Astro.url.pathname;
 ---
 
 <header>
@@ -11,16 +13,16 @@ import MobileNavbar from '../components/MobileNavbar.astro';
             </a>
             <ul class="flex max-md:hidden font-bold lg:text-xl gap-x-14 font-main text-cream-white">
                 <li>
-                    <a href="/#home">Home</a>
+                    <a onclick="lenis.scrollTo('#home')" href={`${currentPath !== '/' ? '/' : ''}#home`}>Home</a>
                 </li>
                 <li>
-                    <a href="/#about">About</a>
+                    <a onclick="lenis.scrollTo('#about')" href={`${currentPath !== '/' ? '/' : ''}#about`}>About</a>
                 </li>
                 <li>
                     <a href="/gallery">Gallery</a>
                 </li>
                 <li>
-                    <a href="/#contact">Contact</a>
+                    <a onclick="lenis.scrollTo('#contact')" href={`${currentPath !== '/' ? '/' : ''}#contact`}>Contact</a>
                 </li>
             </ul>
             <HamburgerMenu />
