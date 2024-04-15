@@ -71,7 +71,16 @@
             scrub: true,
         },
         opacity: 0,
-        y: "50%",
+        y: "-30%",
+    });
+
+    gsap.to("#hero", {
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top",
+            scrub: true,
+        },
+        opacity: 0
     });
 </script>
 
