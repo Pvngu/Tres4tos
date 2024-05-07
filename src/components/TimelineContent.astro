@@ -12,29 +12,38 @@ const ITEM = [
     image: "/images/machine.jpg",
     alt: "image"
 },
-{
-    date: "2018",
-    text: " I joined the team of Delisse as the head barista. Working along with Chef Aron Sanchez, I was able to train my palate by tasting different ingredients and understanding the similarity between coffee and food. I remember the smell of butter every single morning while the Croissants were being baked every single morning.",
-    image: "/images/machine-2.jpg",
-    alt: "image"
-}
+
 ]
 ---
 
 <article class="relative flex gap-12 items-center flex-col">
-    {
-        ITEM.map((item, index) => (
-            <div class={`flex ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} items-center gap-20 max-md:gap-4 max-md:flex-col w-full timeline-card`}>
-                <div class="md:w-1/2 text-center relative">
-                    <span class="font-semibold mb-6 text-8xl xl:text-9xl font-main md:translate-x-11 tracking-[5vw] addStroke inline-block whitespace-nowrap dateText">{item.date}</span>
-                    <p class="font-secondary max-md:text-base text-[#3e312b] max-2xl:text-lg text-xl leading-10 text-justify">{item.text}</p>
-                </div>
-                <div class="md:w-1/2 w-full max-md:max-h-64 overflow-hidden rounded-3xl imageContainer skeleton">
-                    <img class="object-cover size-full" loading="lazy" src={item.image} alt={item.alt}>
-                </div>
-            </div>
-        ))
-    }
+    <div class='flex items-center justify-between max-md:gap-4 max-md:flex-col w-full timeline-card'>
+        <div class="md:w-1/2 text-center relative">
+            <span class="font-semibold font-main md:translate-x-11 tracking-[3.8vw] addStroke inline-block max-md:text-[6rem] whitespace-nowrap dateText">2015</span>
+            <p class="font-secondary max-md:text-base text-[#3e312b] max-2xl:text-lg text-xl leading-10 text-justify">My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time.</p>
+        </div>
+        <div class="md:w-5/12 w-full overflow-hidden rounded-3xl imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src='/gallery/img-2.jpg' alt='andrea hernandez'>
+        </div>
+    </div>
+    <div class='flex flex-row-reverse items-center justify-between max-md:gap-4 max-md:flex-col w-full timeline-card'>
+        <div class="md:w-5/12 text-center relative">
+            <span class="font-semibold font-main md:translate-x-11 tracking-[3.8vw] md:tracking-[3vw] lg:tracking-[5vw] max-md:text-[6rem] addStroke inline-block whitespace-nowrap dateText">2017</span>
+            <p class="font-secondary max-md:text-base text-[#3e312b] max-2xl:text-lg text-xl leading-10 text-justify">My coffee journey started when I got my first job as a shift supervisor at Cru Coffee Roasters & Cellars in 2015. It was at this place where I was introduced to specialty coffee and fell in love with how simple and complex a coffee bean can be at the same time.</p>
+        </div>
+        <div class="md:w-[53%] w-full overflow-hidden rounded-3xl lg:-translate-y-20 imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src='/gallery/img-3.jpg' alt='andrea hernandez'>
+        </div>
+    </div>
+    <div class='flex items-center justify-between max-md:gap-4 max-md:flex-col w-full timeline-card lg:-translate-y-[10rem]'>
+        <div class="md:w-1/2 text-center relative">
+            <span class="font-semibold font-main md:translate-x-11 tracking-[3.8vw] addStroke inline-block max-md:text-[6rem] whitespace-nowrap dateText">2018</span>
+            <p class="font-secondary max-md:text-base text-[#3e312b] max-2xl:text-lg text-xl leading-10 text-justify">I joined the team of Delisse as the head barista. Working along with Chef Aron Sanchez, I was able to train my palate by tasting different ingredients and understanding the similarity between coffee and food. I remember the smell of butter every single morning while the Croissants were being baked every single morning.</p>
+        </div>
+        <div class="md:w-5/12 w-full overflow-hidden rounded-3xl imageContainer skeleton">
+            <img class="object-cover size-full" loading="lazy" src='/images/machine-2.jpg' alt='andrea hernandez'>
+        </div>
+    </div>
 </article>
 
 <script>
@@ -78,7 +87,13 @@ const ITEM = [
 
 <style>
     .imageContainer {
-        height: clamp(300px, 30vw, 800px);
+        height: clamp(300px, 42vw, 760px);
+    }
+
+    .dateText {
+        @media(min-width: 768px) {
+            font-size: clamp(5rem, 8.2vw, 9rem);
+        }
     }
     .addStroke {
         color: #e9dac4;
