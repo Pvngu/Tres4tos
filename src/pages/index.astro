@@ -24,7 +24,7 @@ import ContactForm from "../components/ContactForm.astro";
 				</div>
 			</div>
 		</section>
-		<div class="bg-cream-white rounded-t-3xl" id="bg">
+		<div class="bg-cream-white md:rounded-t-[4rem] rounded-t-3xl" id="bg">
 			<SectionContent class="py-16" id="about">
 				<H2>About Me</H2>
 				<TimelineContent />
@@ -34,9 +34,11 @@ import ContactForm from "../components/ContactForm.astro";
 				<Gallery />
 			</SectionContent>
 		</div>
-		<SectionContent class="bg-cream-white py-10" id="contact">
-			<H2>Contact Me</H2>
-			<ContactForm />
-		</SectionContent>
+		<div class="bg-cream-white">
+			<SectionContent class="py-10" id="contact">
+				<H2>Contact Me</H2>
+				<ContactForm />
+			</SectionContent>
+		</div>
 	</main>
 </Layout>
